@@ -14,8 +14,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/floostack/transcoder"
-	"github.com/floostack/transcoder/utils"
+	"github.com/hieutm1/gotranscoder"
+	"github.com/hieutm1/gotranscoder/utils"
 )
 
 // Transcoder ...

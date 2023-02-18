@@ -240,7 +240,7 @@ func (t *Transcoder) GetMetadata() (transcoder.Metadata, error) {
 			input = "pipe:"
 		}
 
-		args := []string{"-i", input, "-print_format", "json", "-show_format", "-show_streams", "-show_error", "-hide_banner", "-loglevel", "error"}
+		args := []string{"-i", input, "-print_format", "json", "-show_format", "-show_streams", "-show_error", "-hide_banner"}
 
 		cmd := exec.Command(t.config.FfprobeBinPath, args...)
 		cmd.Stdout = &outb

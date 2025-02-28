@@ -102,6 +102,7 @@ func (t *Transcoder) Start() (<-chan transcoder.Progress, error) {
 	}
 	// print command cmd to stdout
 	fmt.Println("Running command:", cmd.Args)
+
 	// If progresss enabled, get stderr pipe and start progress process
 	if t.config.ProgressEnabled && !t.config.Verbose {
 		stderrIn, err = cmd.StderrPipe()

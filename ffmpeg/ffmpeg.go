@@ -105,7 +105,7 @@ func (t *Transcoder) Start() (<-chan transcoder.Progress, error) {
 	if t.config.ProgressEnabled && !t.config.Verbose {
 		stderrIn, err = cmd.StderrPipe()
 		if err != nil {
-			return nil, fmt.Errorf("Failed getting transcoding progress (%s) with args (%s) with error %s", t.config.FfmpegBinPath, args, err)
+			return nil, fmt.Errorf("failed getting transcoding progress (%s) with args (%s) with error %s", t.config.FfmpegBinPath, args, err)
 		}
 	}
 
@@ -116,7 +116,7 @@ func (t *Transcoder) Start() (<-chan transcoder.Progress, error) {
 	// Start process
 	err = cmd.Start()
 	if err != nil {
-		return nil, fmt.Errorf("Failed starting transcoding (%s) with args (%s) with error %s", t.config.FfmpegBinPath, args, err)
+		return nil, fmt.Errorf("failed starting transcoding (%s) with args (%s) with error %s", t.config.FfmpegBinPath, args, err)
 	}
 
 	if t.config.ProgressEnabled && !t.config.Verbose {
@@ -253,7 +253,7 @@ func (t *Transcoder) GetMetadata() (transcoder.Metadata, error) {
 
 		var metadata Metadata
 
-		if err = json.Unmarshal([]byte(outb.String()), &metadata); err != nil {
+		if err = json.Unmarshal(outb.Bytes(), &metadata); err != nil {
 			return nil, err
 		}
 

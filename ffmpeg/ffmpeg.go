@@ -149,7 +149,7 @@ func (t *Transcoder) Output(arg string) transcoder.Transcoder {
 
 // InputPipe ...
 func (t *Transcoder) InputPipe(w *io.WriteCloser, r *io.ReadCloser) transcoder.Transcoder {
-	if &t.input == nil {
+	if t.input == "" {
 		t.inputPipeWriter = w
 		t.inputPipeReader = r
 	}
@@ -158,7 +158,7 @@ func (t *Transcoder) InputPipe(w *io.WriteCloser, r *io.ReadCloser) transcoder.T
 
 // OutputPipe ...
 func (t *Transcoder) OutputPipe(w *io.WriteCloser, r *io.ReadCloser) transcoder.Transcoder {
-	if &t.output == nil {
+	if t.output == nil {
 		t.outputPipeWriter = w
 		t.outputPipeReader = r
 	}
